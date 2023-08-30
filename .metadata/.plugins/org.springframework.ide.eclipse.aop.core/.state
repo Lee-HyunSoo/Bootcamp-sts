@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<aop-reference-model>
+<aop-project name="day2_log4j_tiles"/>
+<aop-project name="day3_multi_function"/>
+<aop-project name="day4_sts_inter_locale"/>
+<aop-project name="day4_sts_rest"/>
+<aop-project name="day1_sts_mybatis"/>
+<aop-project name="day1_sts_book"/>
+<aop-project name="team6_mini_pro"/>
+</aop-reference-model>

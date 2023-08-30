@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+      PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!-- bookNo number(10) primary key, -->
+<!-- title varchar2(100), -->
+<!-- subject varchar2(100), -->
+<!-- content varchar2(200), -->
+<!-- studyDate varchar2(50), -->
+<!-- chapter varchar2(10) -->
+
+<mapper namespace="mapper.book">
+
+	<select id="selectBooks" resultType="bookVO">
+      <![CDATA[
+         select * from t_book order by bookNO desc	 	
+      ]]>
+	</select>
+
+	<select id="findMaxBookNo" resultType="int">
+      <![CDATA[
+         select max(bookNo) from t_book	 	
+      ]]>
+	</select>
+
+	<select id="detailBook" parameterType="int" resultType="bookVO">
+      <![CDATA[
+         select * from t_book where bookNo = #{bookNo}
+      ]]>
+	</select>
+
+	<insert id="insertBook" parameterType="bookVO">
+		<![CDATA[
+		 insert into t_book values(#{bookNo}, #{title}, #{subject}, #{content}, #{studyDate}, #{chapter})
+		]]>
+	</insert>
+
+	<update id="modifyBook" parameterType="bookVO">
+     <![CDATA[
+	     update t_book set title=#{title}, subject=#{subject}, content=#{content}, studyDate=#{studyDate}, chapter=#{chapter} where bookNo=#{bookNo}
+      ]]>
+	</update>
+
+	<delete id="deleteBook" parameterType="String">
+	<![CDATA[
+	   delete from t_book where bookNo=#{bookNo}
+	]]>
+	</delete>
+
+</mapper>
